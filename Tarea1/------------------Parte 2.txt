@@ -19,6 +19,26 @@ Cada linea del archivo debe representar el juego de cada participante.
 Cada número representa el n° de naipe que es. No se pueden repetir entre
 jugadores a menos que se consideren dos masos.
 
+pseudocodigoo
+
+1. leer archivo binario.
+----- abrir archivo
+----- leer archivo (file.read(char*)&n; sizeof(int)) (file.read(char*)&arr_n; sizeof(int)*n)
+----- cerrar archivo.
+
+2. Barajar.
+----- teniendo una vez todos las cartas en el archivo, se van a barajar (random)
+------forma1.
+Se crea un arreglo nuevo de tamaño n, donde se hara un ciclo,,, por cada posicion del arreglo nuevo se escogerá una random del arreglo anterior. Antes de guardarlo en la posicion, se preguntará si es que ya existe en el arreglo. En el caso de hacerlo, se vuelve a escoger un numero random.
+----- forma2.
+en cada jugada, ir escogiendo cartas aleatorias e ir buscando si es que están o no en uso.
+
+3. funcion TipoJugada.
+----- Dependiendo de la jugada, reparte las cartas. Por cada jugador se usa una linea de archivo. Se crea un archivo cuyo nombre sea la cantidad de jugadores y el tipo de jugada. Cada linea corresponde a un jugador.
+----- borrar memoria dinámica.
+----- imprimir por salida estandar la cantidad de cartas rojas y negras en el juego. (se ve con el struct)
+
+
 Ejemplo de ejecución:
 
 Ingrese Juego (P, C o B):
@@ -32,18 +52,3 @@ Un ejemplo del archivo de texto ',P4.txt’, creado según la ejecución anterio
 24 20 31 9 36
 49 47 39 43 45
 44 25 12 50 32
-
-
-pseudocodigoo
-1. leer el archivo binario
-- abrir el archivo y almacenarlo en un arreglo (memoria dinámica)
-    (file.read(char*)&n; sizeof(int)) (lee el solo el n, luego hay que utilizar ese n para leer los n structs)
-    (así: 
-      // primero se debe guardar la cantidad de cosas a guardar, porque sino
-      // en otro programa al menos que siempre sepamos que es un arreglo de tamanio
-      // 3, no podemos adivinar cuantas cosas estan escritas
-      file.write((char*)&n, sizeof(int));
-      // ahora guardamos el arreglo
-      file.write((char*)arr, sizeof(persona) * n);)
-2. guardar el la baraja
-3. funcion TipoJugada, que creará el archivo según la jugada que se escoja.
