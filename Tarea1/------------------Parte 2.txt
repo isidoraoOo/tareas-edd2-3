@@ -1,0 +1,49 @@
+------------------Parte 2
+
+archivo.dat
+N que indica la cantidad de cartas en la baraja (52) seguido 
+de n naipes ingleses (n, es decir 52, structs de naipes)
+
+formato struct:
+int numero (1 a 13); char palo (Pica, Corazón, Diamante y Trebol);
+char color (rojo CD, negro PT)
+
+Se busca realizar distintas jugadas con la baraja creada.
+poker (P): 2 a 7 jugadores, 1 baraja. Cada uno recibe 5 naipes.
+canasta (C): 2 a 6 jugadores, 2 barajas. Cada uno recibe 15 naipes.
+brisca (B): 2 a 6 jugadores, 1 baraja. Cada uno recibe 4 naipes.
+
+Debe preguntar la cantidad de jugadores.
+Se debe crear un archivo de texto cuyo nombre serpa el tipo de juego.
+Cada linea del archivo debe representar el juego de cada participante.
+Cada número representa el n° de naipe que es. No se pueden repetir entre
+jugadores a menos que se consideren dos masos.
+
+Ejemplo de ejecución:
+
+Ingrese Juego (P, C o B):
+P
+Ingrese cantidad de jugadores:
+4
+Cantidad de cartas Rojas: 9
+Cantidad de cartas Negras: 11
+Un ejemplo del archivo de texto ',P4.txt’, creado según la ejecución anterior es el siguiente:
+11 17 5 10 42
+24 20 31 9 36
+49 47 39 43 45
+44 25 12 50 32
+
+
+pseudocodigoo
+1. leer el archivo binario
+- abrir el archivo y almacenarlo en un arreglo (memoria dinámica)
+    (file.read(char*)&n; sizeof(int)) (lee el solo el n, luego hay que utilizar ese n para leer los n structs)
+    (así: 
+      // primero se debe guardar la cantidad de cosas a guardar, porque sino
+      // en otro programa al menos que siempre sepamos que es un arreglo de tamanio
+      // 3, no podemos adivinar cuantas cosas estan escritas
+      file.write((char*)&n, sizeof(int));
+      // ahora guardamos el arreglo
+      file.write((char*)arr, sizeof(persona) * n);)
+2. guardar el la baraja
+3. funcion TipoJugada, que creará el archivo según la jugada que se escoja.
