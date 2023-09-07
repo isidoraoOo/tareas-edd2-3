@@ -20,23 +20,49 @@ Cada número representa el n° de naipe que es. No se pueden repetir entre
 jugadores a menos que se consideren dos masos.
 
 pseudocodigoo
-
 1. leer archivo binario.
 ----- abrir archivo
 ----- leer archivo (file.read(char*)&n; sizeof(int)) (file.read(char*)&arr_n; sizeof(int)*n)
 ----- cerrar archivo.
+listo
 
 2. Barajar.
------ teniendo una vez todos las cartas en el archivo, se van a barajar (random)
-------forma1.
-Se crea un arreglo nuevo de tamaño n, donde se hara un ciclo,,, por cada posicion del arreglo nuevo se escogerá una random del arreglo anterior. Antes de guardarlo en la posicion, se preguntará si es que ya existe en el arreglo. En el caso de hacerlo, se vuelve a escoger un numero random.
------ forma2.
-en cada jugada, ir escogiendo cartas aleatorias e ir buscando si es que están o no en uso.
+----- teniendo una vez todos las cartas en el archivo, se van a barajar
+(funcion Barajar)
+listo
+
+2.1
+------forma1
+Se crea un arreglo nuevo de tamaño n, donde se hara un ciclo,,, por cada 
+posicion del arreglo nuevo se escogerá una random del arreglo anterior. 
+Antes de guardarlo en la posicion, se preguntará si es que ya existe en el 
+arreglo. En el caso de hacerlo, se vuelve a escoger un numero random.
+----- forma2
+en cada jugada, ir escogiendo cartas aleatorias e ir buscando si es que 
+están o no en uso.
 
 3. funcion TipoJugada.
------ Dependiendo de la jugada, reparte las cartas. Por cada jugador se usa una linea de archivo. Se crea un archivo cuyo nombre sea la cantidad de jugadores y el tipo de jugada. Cada linea corresponde a un jugador.
+----- Dependiendo de la jugada, reparte las cartas. Por cada jugador se 
+usa una linea de archivo. Se crea un archivo cuyo nombre sea la cantidad de 
+jugadores y el tipo de jugada. Cada linea corresponde a un jugador.
+
+Arreglo de tamaño dinámico, donde se guardarán las cartas que ya fueron utilizadas.
+(solo para juego P y B). 
+juego Canasta:
+Pueden repetirse las cartas hasta dos veces, por lo que hay que hacer un contador
+para verificar cuantas veces existe 
+
+
+Crear archivo de texto.
+Ciclo for para cada linea. Cada linea corresponde a un jugador.
+Cada vez que se complete la cantidad de cartas se hace un salto de linea. 
+Por cada salto de linea se tendrá un contador, esto va a indicar la cantidad
+de jugadores que hay. (while i < jugadores)
+
+
 ----- borrar memoria dinámica.
------ imprimir por salida estandar la cantidad de cartas rojas y negras en el juego. (se ve con el struct)
+----- imprimir por salida estandar la cantidad de cartas rojas y negras en 
+el juego. (se ve con el struct)
 
 
 Ejemplo de ejecución:
