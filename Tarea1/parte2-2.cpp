@@ -12,7 +12,6 @@
 #define min 0
 #define max 53
 
-//#include "main.cpp" //para incluir los struct
 
 using namespace std;
 
@@ -49,12 +48,14 @@ int Barajar(){
 void TipoJugada(string juego, int jugadores){
     fstream file;
     int* pos = new int[n];
+    int *ocupadas = new int[n];
     string nombre = juego + to_string(jugadores) + ".txt";
     file.open(nombre, ios::app);
 
 
     for (int i = 0; i < n; i++){
         pos[i] = 0; // Inicializar todas las posiciones como no ocupadas (0)
+        ocupadas[i] = 0;
     }
 
     if (juego == "P"){
@@ -102,8 +103,9 @@ void TipoJugada(string juego, int jugadores){
                 int carta;
                 do {
                     carta = Barajar(); // Genera una carta aleatoria
-                } while (pos[carta] >= 2); // Verifica que la carta ya esté ocupada
-                pos[carta]++; // Marca la carta como ocupada
+                } while (ocupadas[carta] >= 2); // esto porque las cartas En este tipo de juego, pueden repetirse pero solo una vez, por que se puede jugar con dos masos.
+                                           // lo que significa que en el juego pueden haber Como maximo, 2 cartas iguales.
+                ocupadas[carta]++; // aumenta la cantidad de cartas en el arreglo ocupadas
                 if (arr_n[carta].color == 'R'){
                     rojas++;
                 } else {
@@ -116,6 +118,7 @@ void TipoJugada(string juego, int jugadores){
     }
     file.close();
     delete[] pos; // Libera la memoria del arreglo pos
+    delete [] ocupadas;
 }
 
 
