@@ -54,7 +54,7 @@ void leerBinario(){
 * .......
 ******
 * Returns:
-* int, numero aleatorio entre las cartas
+* int, numero aleatorio que indica una carta al azar
 *****/
 int Barajar(){
   random_device rd;
