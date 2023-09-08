@@ -11,9 +11,9 @@ using namespace std;
 
 struct Naipe{
 
-    int numero; //va del 0 al 13
-    char palo; //pica, corazon, diamante, trebol
-    char color; //rojo o negro
+    int numero;
+    char palo;
+    char color;
 
 };
 int n;
@@ -54,7 +54,7 @@ void leerBinario(){
 * .......
 ******
 * Returns:
-* int, numero aleatoreo entre las cartas
+* int, numero aleatorio entre las cartas
 *****/
 int Barajar(){
   random_device rd;
