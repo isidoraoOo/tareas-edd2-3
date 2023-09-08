@@ -1,3 +1,8 @@
+
+//>, <
+// g++ parte2.cpp -Wall -o parte2-compilado (compilar)
+// .\parte2-compilado (ejecutar)
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -85,19 +90,19 @@ void TipoJugada(string juego, int jugadores){
 
 
     for (int i = 0; i < n; i++){
-        pos[i] = 0; // Inicializar todas las posiciones como no ocupadas (0)
+        pos[i] = 0;
     }
 
     if (juego == "P"){
         int cont = jugadores;
-        for (int a = 0; a < cont; a++){ //cuenta los saltos de linea
-            for (int i = 0; i < 5 ; i++){ //cuenta la cantidad de cartas
+        for (int a = 0; a < cont; a++){
+            for (int i = 0; i < 5 ; i++){
                 int carta;
                 do {
-                    carta = Barajar(); // Genera una carta aleatoria
-                } while (pos[carta] != 0); // Verifica que la carta no esté ocupada
+                    carta = Barajar();
+                } while (pos[carta] != 0);
 
-                pos[carta] = 1; // Marca la carta como ocupada
+                pos[carta] = 1;
                 if (arr_n[carta].color == 'R'){
                     rojas++;
                 } else {
@@ -109,14 +114,14 @@ void TipoJugada(string juego, int jugadores){
         }
     } else if (juego == "B"){
         int cont = jugadores;
-        for (int a = 0; a < cont; a++){ //cuenta los saltos de linea
-            for (int i = 0; i < 4 ; i++){ //cuenta la cantidad de cartas
+        for (int a = 0; a < cont; a++){
+            for (int i = 0; i < 4 ; i++){
                 int carta;
                 do {
-                    carta = Barajar(); // Genera una carta aleatoria
-                } while (pos[carta] != 0); // Verifica que la carta no esté ocupada
+                    carta = Barajar();
+                } while (pos[carta] != 0);
 
-                pos[carta] = 1; // Marca la carta como ocupada
+                pos[carta] = 1;
                 if (arr_n[carta].color == 'R'){
                     rojas++;
                 } else {
@@ -128,12 +133,12 @@ void TipoJugada(string juego, int jugadores){
         }
     } else if (juego == "C"){
         int cont = jugadores;
-        for (int a = 0; a < cont; a++){ //cuenta los saltos de linea
-            for (int i = 0; i < 15 ; i++){ //cuenta la cantidad de cartas
+        for (int a = 0; a < cont; a++){
+            for (int i = 0; i < 15 ; i++){
                 int carta;
                 do {
-                    carta = Barajar(); // Genera una carta aleatoria
-                } while (ocupadas[carta] >= 2); // 
+                    carta = Barajar();
+                } while (ocupadas[carta] >= 2);
                 ocupadas[carta]++; // 
                 if (arr_n[carta].color == 'R'){
                     rojas++;
