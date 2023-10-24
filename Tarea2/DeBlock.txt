@@ -1,3 +1,5 @@
+DeBlock es básicamente llamadas a tListaDeListas :3
+
 Su programa deberá constar de un TDA llamado DeBlock que va almacenar elementos tipo tElem. El TDA tendrá el siguiente formato:
 
 class DeBlock {
@@ -6,7 +8,7 @@ class DeBlock {
     tListadeLista l;
   public: 
     DeBlock(tElem* elems, int n, int b);
-    int insert(int pos, tElem elem);
+    int insert(int pos, tElem elem); // 
     tElem erase(int pos);
     tElem get_value(int pos);
     int length();
@@ -20,10 +22,58 @@ PISTA: deberá implementar dos tipos listas, uno que permita almacenar listas y 
 Usted debe implementar las siguientes funciones dentro del TDA:
 
 DeBlock(tElem* elems, int n, int b): constructor que inicializa la estructura con un arreglo de tamaño n utilizando bloques de tamaño b.
+-- se  implementa en DeBlock.
+while (i < n){
+  tLista.clear;
+  for (int a = 0; a < b; a++){
+    tElem valor = elems[a];
+    tLista.append(valor);
+  }
+  tListaDeListas.append(tLista);
+  i = i + a;
+}
 
 int insert(int pos, tElem elem): inserta elem en la posición pos. Retorna 1 si el elemento se insertó correctamente, en caso contrario se retorna 0.
+-- se implementa en tListaDeListas. 
+
+int cont = 0;
+for (int i = 0; i < t  tListaDeListas.lenght(); i++){
+  if (pos <= cont + tListaDeListas[i]->lenght()){
+    tListaDeListas[i]->moveToStart();
+    for (int a = cont; a < pos; a++){;
+      tListaDeListas[i]->Next();
+    }
+    tListaDeListas[i]->insert(elem);
+    return 1;
+  }
+  else {
+    cont = cont + tListaDeListas[i]->lenght();
+    i++;
+  }
+  
+}
+return 0;
 
 tElem get_value(int pos): retorna el elemento almacenado en la posición pos.
+-- se implementa en tListaDeListas.
+
+int cont = 0;
+tElem elem;
+for (int i = 0; i < t  tListaDeListas.lenght(); i++){
+  if (pos <= cont + tListaDeListas[i]->lenght()){
+    tListaDeListas[i]->moveToStart();
+    for (int a = cont; a < pos; a++){
+      elem = tListaDeListas[i]->getValue();
+      tListaDeListas[i]->Next();
+    }
+    return elem;
+  }
+  else {
+    cont = cont + tListaDeListas[i]->lenght();
+    i++;
+  }
+}
+
 
 int length(): retorna el número de elementos en la estructura.
 
