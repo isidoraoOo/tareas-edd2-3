@@ -2,7 +2,7 @@
 #include "TDAlistaDeListas.hpp"
 using namespace std;
 
-#define MAXSIZE 1000000;
+#define MAXSIZE 1000000
 
 //tListadeListas
 
@@ -19,6 +19,12 @@ tListadeListas::~tListadeListas(){
 }
 
 void tListadeListas::clear(){
+    for (int i = 0; i < listSize; i++) {
+        listArray[i].clear();
+    }
+
+    delete[] listArray;
+    listArray = nullptr;
     listSize = curr = 0;
 }
 
@@ -39,7 +45,7 @@ int tListadeListas::insert(tLista lista){
 int tListadeListas::Insert_block(int pos, tElem elem){
     int cont = 0;
     for (int i = 0; i < listArray->length(); i++){
-        if (pos <= cont + listArray[i].length()){
+        if (pos < cont + listArray[i].length()){
             int a = pos - cont;
             listArray[i].moveToPos(a);
             listArray[i].insert(elem);
@@ -47,7 +53,6 @@ int tListadeListas::Insert_block(int pos, tElem elem){
         }
         else {
             cont = cont + listArray[i].length();
-            i++;
         }  
     }
     return 0;
@@ -103,12 +108,12 @@ int tListadeListas::currPos(){
     return curr;
 }
 
-tLista tListadeListas::GetValue(){
+tLista* tListadeListas::GetValue(){
     if (curr >= 0 && curr <= listSize){
-        return listArray[curr];
+        return &listArray[curr];
     }
     else {
-    	return tLista();
+    	return nullptr;
     }
 }
 
@@ -116,32 +121,17 @@ tElem tListadeListas::GetValue_block(int pos){
     int cont = 0;
     tElem elem;
     for (int i = 0; i < listArray->length(); i++){
-        if (pos <= cont + listArray[i].length()){
-            listArray[i].moveToPos(pos - cont);
-            listArray[i].moveToStart();
+        if (pos < cont + listArray[i].length()){
+            int a = pos - cont;
+            listArray[i].moveToPos(a);
             elem = listArray[i].getValue();
-            return elem;
+            break;
         } else {
             cont = cont + listArray[i].length();
-            i++;
         }
     }
-    return -1;
-}
-
-/*tListadeListas tListadeListas::De_Block(tElem* elems, int n, int b){
-    int i = 0;
-    int a;
-    tLista Lista;
-    tListadeListas Listota;
-    while (i < n){
-        for (a = 0; a < b; a++){
-            tElem valor = elems[a];
-            Lista.append(valor);
-            i++;
-        }
-        Lista.clear();
-        Listota.append(Lista);
+    if (pos < 0 || pos >= Length_block()){
+        elem = -1;
     }
-    return Listota;
-}*/
+    return elem;
+};
