@@ -26,9 +26,9 @@ class tListadeListas{
     int Length(); 
     int Length_block();
     int currPos(); 
-    tLista GetValue();
+    tLista* GetValue();
     tElem GetValue_block(int pos);
 };
 
-//TDADeBlock.hpp TDAlistaDeListas.hpp prueba.cpp
-//DeBlock.cpp ListaDeListas.cpp prueba.cpp
+
+//g++ DeBlock.cpp ListaDeListas.cpp prueba.cpp -Wall -o prueba1
