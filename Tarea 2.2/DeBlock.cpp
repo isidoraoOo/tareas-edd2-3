@@ -21,7 +21,6 @@ DeBlock::DeBlock(tElem* elems, int n, int b) {
         }
         L.append(Lista);
     }
-    cout<<"final"<<endl;
 }
 
 void DeBlock::print(){
