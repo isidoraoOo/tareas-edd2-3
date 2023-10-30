@@ -43,7 +43,9 @@ DeBlock::~DeBlock(){
 
 int DeBlock::insert(int pos, tElem elem){
     int a = L.Insert_block(pos, elem);
-    cant_elems++;
+    if (a == 1){
+        cant_elems++;
+    }    
     cout<<a<<endl;
     return a;
 }
