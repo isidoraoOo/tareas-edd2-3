@@ -1,0 +1,29 @@
+TABLA HASH
+
+hacer una tabla hash que almacene MATRICES.. OK.
+cada matriz representa un juego de tic tac toe
+debe Insertar, borrar, buscar y consultar.
+
+tda hash
+int hashInsert(ranura HT[], tipoClave k, tipoInfo I)
+debe insertarse en la tabla de hash a menos que 
+ya exista. Al insertarse correctamente debe retornar 1, 0 en caso contrario.
+
+tipoInfo hashDelete(ranura HT[], tipoClave k)
+debe borrar la clave de la tabla y retornar su infomación o un valor inválido.
+
+tipoInfo hashSearch(ranura HT[], tipoClave k)
+debe buscar la clave en la tabla y retornar su información asociada.
+en caso que nos e encuentre Retorna un valor inválido
+
+int h(tipoClave k)
+retorna la posicion de la clave en la tabla
+
+
+typedef int tipoClave;
+typedef string tipoInfo[3][3];
+
+struct ranura (
+  tipoClave clave;
+  tipoInfo info;
+)
